@@ -18,11 +18,11 @@ def get_all_persons():
     return persons.get_all_pers()
 
 @app.route('/api/v1/persons', methods=["POST"])
-def create_person():
+def post_person():
     return persons.create_pers()
 
 @app.route('/api/v1/persons/<int:personId>', methods=["PATCH"])
-def update_person(personId):
+def patch_person(personId):
     return persons.upd_pers(personId)
 
 @app.route("/api/v1/persons/<int:personId>", methods=["DELETE"])
