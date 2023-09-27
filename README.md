@@ -1,1 +1,0 @@
-# rsoi_lab1_try
