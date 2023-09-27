@@ -3,7 +3,7 @@ import psycopg2
  DB_URL = 'postgresql://postgresql://postgres:posTgress23@127.0.0.1:5432/rsoi_persons' 
   
   
- class DatabaseRequests: 
+ class Database: 
      def create_table(self): 
          new_table = ''' 
                      CREATE TABLE persons 
