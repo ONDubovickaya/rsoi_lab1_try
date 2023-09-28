@@ -103,12 +103,7 @@ class Database:
 
         cur.execute(f"DELETE FROM Persons WHERE id={personId};")
 
-        #количество удалённых строк
-        rows_deleted = cur.rowcount
-
         conn.commit()
 
         cur.close()
         conn.close()
-
-        return rows_deleted
