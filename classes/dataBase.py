@@ -8,32 +8,6 @@ class Database:
     def __init__(self):
         self.my_database = my_database
 
-    #создание таблицы в базе данных
-    def DB_create_table(self):
-        new_table = '''
-                    CREATE TABLE IF NOT EXISTS Persons
-                    (
-                       id serial PRIMARY KEY,
-                       name varchar(50) NOT NULL,
-                       age integer,
-                       address varchar(50),
-                       work varchar(50)
-                    );
-                    '''
-        #соединение с существующей базой данных и создание курсора
-        conn = psycopg2.connect(self.my_database)
-        cur = conn.cursor()
-
-        #выполнение SQL-запроса к базе данных
-        cur.execute(new_table)
-
-        #сохранение изменений
-        conn.commit()
-
-        #закрытие соединений
-        cur.close()
-        conn.close()
-
     #получение информации о человеке по ID
     def DB_get_person(self, personId):
         conn = psycopg2.connect(self.my_database)
