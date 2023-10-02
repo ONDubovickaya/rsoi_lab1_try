@@ -2,9 +2,9 @@ import unittest
 import requests
 
 import sys
-sys.path.append('C:/Users/ОЛЬГА/Desktop/rsoi/rsoi_lab1_try/classes/uniTests/test.py')
+sys.path.append('C:\\Users\\ОЛЬГА\\Desktop\\rsoi\\rsoi_lab1_try\\classes')
 
-from classes.dataBase import Database
+from dataBase import Database
 #from classes.personClass import Person
 
 database = Database()
