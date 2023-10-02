@@ -1,6 +1,14 @@
 import unittest
 import requests
 
+import sys
+sys.path.append('C:/Users/ОЛЬГА/Desktop/rsoi/rsoi_lab1_try/classes/uniTests/test.py')
+
+from classes.dataBase import Database
+#from classes.personClass import Person
+
+database = Database()
+
 person1 = {
      "name" : "Vera",
      "age" : 31,
@@ -21,8 +29,19 @@ patch_address = {"address" : "Khimki"}
 patch_work = {"designer"}
 
 class TestAPI(unittest.TestCase):
+    #тестирование GET-запроса для человека по ID
+    def test_get_person(self):
+        person = database.DB_get_person(1)
 
-    def test_post_get(self):
+        with self.subTest(person=person):
+            r = requests.get(url="http://127.0.0.1:8080/api/v1/persons/1")
+            self.assertEqual(r.status_code, 200)
+            self.assertEqual(r.json(), person)
+    
+    #тестирование GET-запроса для всех людей
+
+    #тестирование POST-запроса
+    def test_post_person(self):
         persons = [person1, person2]
 
         for person in persons:
@@ -43,8 +62,10 @@ class TestAPI(unittest.TestCase):
 
                 #сравним объединение словарей person и person_id_dict с результатом json-запроса
                 self.assertEqual(r.json(), {**person, **person_id_dict})
+    
     """
-    def test_post_patch(self):
+    #тестирование PATCH-запроса
+    def test_patch_person(self):
         persons = [person1, person2]
         patch_vars = [patch_name, patch_age, patch_address, patch_work]
 
@@ -57,7 +78,9 @@ class TestAPI(unittest.TestCase):
                     self.assertEqual(r.status_code, 200)
                     self.assertEqual(r.json(), patch_var)
     """
-    def test_post_delete(self):
+    
+    #тестирование DELETE-запроса
+    def test_delete_person(self):
         persons = [person1, person2]
 
         for person in persons:
