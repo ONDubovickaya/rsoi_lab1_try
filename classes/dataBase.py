@@ -22,7 +22,10 @@ class Database:
         cur.close()
         conn.close()
 
-        return person
+        if person is None:
+            return None
+        else:
+            return person
 
     #информация о всех людях
     def DB_get_all_persons(self):
@@ -37,7 +40,10 @@ class Database:
         cur.close()
         conn.close()
 
-        return persons
+        if persons is None:
+            return None
+        else:
+            return persons
 
     #добавление нового человека в таблицу
     def DB_add_person(self, new_person):
@@ -53,7 +59,10 @@ class Database:
         cur.close()
         conn.close()
 
-        return person[0] if person else None
+        if person is None:
+            return None
+        else:
+            return person[0]
 
     #изменение информации о человеке по ID
     def DB_update_person(self, new_info, personId):
@@ -69,7 +78,10 @@ class Database:
         cur.close()
         conn.close()
 
-        return person if person else None
+        if person is None:
+            return None
+        else:
+            return person
 
     #удаление человека по ID
     def DB_delete_person(self, personId):
