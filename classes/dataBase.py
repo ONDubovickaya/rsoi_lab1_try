@@ -92,13 +92,14 @@ class Database:
 
         person_exists = cur.fetchone()
 
-        if person_exists:
+        if person_exists is None:
+            cur.close()
+            conn.close()
+        else:
             cur.execute(f"DELETE FROM Persons WHERE id={personId} RETURNING *;")
 
             conn.commit()
 
             cur.close()
             conn.close()
-        else:
-            cur.close()
-            conn.close()
+            
