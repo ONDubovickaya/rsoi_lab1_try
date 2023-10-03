@@ -17,8 +17,11 @@ def get_person(personId):
 
     if person_json is None:
         return make_response(f"Not found Person for ID {personId}", 404)
-
+    
+    #создадим http-ответ с кодом состояния 200 (успешный запрос) и телом ответа в формате JSON
     response = make_response(person_json, 200)
+
+    #установим значение заголовка "Content-Type" на "application/json" (т.е. сервер будет отправлять данные в формате JSON)
     response.headers['Content-Type'] = 'application/json'
 
     return response
@@ -38,6 +41,7 @@ def get_all_person():
 #маршрут для обработки POST-запроса на создание новой записи о человеке
 @app.route('/api/v1/persons', methods=["POST"])
 def post_person():
+    #присвоим переменной JSON-объект, который был передан в запросе с помощью метода "json()"
     new_person = request.json
 
     person = Person()
@@ -46,8 +50,8 @@ def post_person():
 
     if person_id is None:
         return make_response('Invalid data', 400)
-
-    return '', 201, {'location': f'{request.host_url}api/v1/persons/{int(person_id)}'}   #при успешном создании новой записи возвращается пустая строка и 
+    #при успешном создании новой записи возвращается пустая строка, код состояния 201 Created и заголовок Location со значением, содержащим URL для доступа к новому ресурсу 
+    return '', 201, {'location': f'{request.host_url}api/v1/persons/{int(person_id)}'}   
 
 #маршрут для обработки PATCH-запроса на обновление существующей записи о человеке по ID
 @app.route('/api/v1/persons/<int:personId>', methods=["PATCH"])
