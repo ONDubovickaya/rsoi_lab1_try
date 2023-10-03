@@ -9,7 +9,7 @@ def index():
     return "RSOI. Lab №1 (CI & CD) : PERSONS"
 
 #маршрут для обработки GET-запроса на получение информации о человеке по ID
-@app.route('/api/v1/persons/<int:personId>', methods=["GET"])
+@app.route('/persons/<int:personId>', methods=["GET"])
 def get_person(personId):
     person = Person()
 
@@ -27,7 +27,7 @@ def get_person(personId):
     return response
 
 #маршрут для обработки GET-запроса на получение информации о всех людях
-@app.route('/api/v1/persons', methods=["GET"])
+@app.route('/persons', methods=["GET"])
 def get_all_person():
     person = Person()
 
@@ -39,7 +39,7 @@ def get_all_person():
     return response
 
 #маршрут для обработки POST-запроса на создание новой записи о человеке
-@app.route('/api/v1/persons', methods=["POST"])
+@app.route('/persons', methods=["POST"])
 def post_person():
     #присвоим переменной JSON-объект, который был передан в запросе с помощью метода "json()"
     new_person = request.json
@@ -54,7 +54,7 @@ def post_person():
     return '', 201, {'location': f'{request.host_url}api/v1/persons/{int(person_id)}'}   
 
 #маршрут для обработки PATCH-запроса на обновление существующей записи о человеке по ID
-@app.route('/api/v1/persons/<int:personId>', methods=["PATCH"])
+@app.route('/persons/<int:personId>', methods=["PATCH"])
 def patch_person(personId):
     new_person = request.json
 
@@ -73,7 +73,7 @@ def patch_person(personId):
     return response
 
 #маршрут для обработки DELETE-запроса на удаление записи о человеке по ID
-@app.route('/api/v1/persons/<int:personId>', methods=["DELETE"])
+@app.route('/persons/<int:personId>', methods=["DELETE"])
 def delete_person(personId):
     person = Person()
 
