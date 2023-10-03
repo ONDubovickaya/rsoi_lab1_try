@@ -53,7 +53,7 @@ class Database:
         cur.close()
         conn.close()
 
-        return person[0]
+        return person[0] if person else None
 
     #изменение информации о человеке по ID
     def DB_update_person(self, new_info, personId):
@@ -69,7 +69,7 @@ class Database:
         cur.close()
         conn.close()
 
-        return person
+        return person if person else None
 
     #удаление человека по ID
     def DB_delete_person(self, personId):
