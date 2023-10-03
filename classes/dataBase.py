@@ -88,9 +88,17 @@ class Database:
         conn = psycopg2.connect(self.my_database)
         cur = conn.cursor()
 
-        cur.execute(f"DELETE FROM Persons WHERE id={personId} RETURNING *;")
+        cur.execute(f"SELECT id FROM Persons WHERE id={personId};")
 
-        conn.commit()
+        person_exists = cur.fetchone()
 
-        cur.close()
-        conn.close()
+        if person_exists:
+            cur.execute(f"DELETE FROM Persons WHERE id={personId} RETURNING *;")
+
+            conn.commit()
+
+            cur.close()
+            conn.close()
+        else:
+            cur.close()
+            conn.close()
