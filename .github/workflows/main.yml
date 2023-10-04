@@ -38,9 +38,8 @@ jobs:
   
      - name: Unit tests 
        run: | 
-         - class: Database 
-            cd classes/uniTests
-            pip install requests
-            python -m unittest discover 
+          cd classes/uniTests
+          pip install requests
+          python -m unittest discover 
          
          
