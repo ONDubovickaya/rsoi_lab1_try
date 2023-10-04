@@ -10,7 +10,8 @@ class Person:
             "address": None,
             "work": None
         }
-
+    
+    #информация о человеке
     def PC_person_info(self, info_db):
         if len(info_db) != 5:
             raise Exception("Info doesn't contain 5 positions")
@@ -22,7 +23,8 @@ class Person:
             "address": str(info_db[3]),
             "work": str(info_db[4])
         }
-
+    
+    #информация о человеке по его ID
     def PC_get_person(self, personId):
         info_db = self.database.DB_get_person(personId)
 
@@ -33,7 +35,8 @@ class Person:
         self.PC_person_info(info_db)
 
         return self.person
-
+    
+    #информация о всех людях
     def PC_get_all_persons(self):
         info_db = self.database.DB_get_all_persons()
         persons = []
@@ -47,6 +50,7 @@ class Person:
 
         return persons
 
+    #создание новой записи о человеке
     def PC_create_person(self, person):
         personId = self.database.DB_add_person(person)
         info_db = self.database.DB_get_person(personId)
@@ -56,6 +60,7 @@ class Person:
 
         return personId
 
+    #обновление существующей записи о человеке по его ID
     def PC_update_person(self, new_person, personId):
         info_db = self.database.DB_get_person(personId)
 
@@ -70,6 +75,7 @@ class Person:
 
         return 0
 
+    #удаление записи о человеке по его ID
     def PC_delete_person(self, personId):
         info_db = self.database.DB_get_person(personId)
 

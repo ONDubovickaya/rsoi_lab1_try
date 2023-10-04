@@ -82,7 +82,7 @@ def delete_person(personId):
     if answer == 0:
         return make_response(f"Not found Person for ID {personId}", 404)
 
-    return make_response(f'Person for ID {personId} was removed', 204)
+    return make_response(f"Person for ID {personId} was removed", 204)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=8080)

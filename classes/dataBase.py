@@ -9,7 +9,7 @@ class Database:
     def __init__(self):
         self.my_database = my_database
 
-    #получение информации о человеке по ID
+    #получение информации о человеке по его ID
     def DB_get_person(self, personId):
         conn = psycopg2.connect(self.my_database)
         cur = conn.cursor()
@@ -64,7 +64,7 @@ class Database:
         else:
             return person[0]
 
-    #изменение информации о человеке по ID
+    #изменение информации о человеке по его ID
     def DB_update_person(self, new_info, personId):
         conn = psycopg2.connect(self.my_database)
         cur = conn.cursor()
@@ -83,7 +83,7 @@ class Database:
         else:
             return person
 
-    #удаление человека по ID
+    #удаление человека из таблицы по его ID
     def DB_delete_person(self, personId):
         conn = psycopg2.connect(self.my_database)
         cur = conn.cursor()
