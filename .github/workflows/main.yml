@@ -5,7 +5,7 @@ on: [push]
 jobs: 
    build: 
      runs-on: ubuntu-latest 
-     container: python:3
+     container: python
   
      services: 
        postgres: 
@@ -39,7 +39,6 @@ jobs:
      - name: Unit tests 
        run: | 
          cd classes/uniTests
-         pip install requests
-         unittest test.py
+         python -m unittest discover .
          
          
