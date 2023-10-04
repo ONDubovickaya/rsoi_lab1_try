@@ -38,6 +38,6 @@ jobs:
   
      - name: Unit tests 
        run: | 
-         cd classes/uniTests 
+         cd classes/uniTests/test.py
          pip install unittest
          
