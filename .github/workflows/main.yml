@@ -22,7 +22,7 @@ jobs:
      - name: deps 
        run: | 
          ls -a 
-         pip install -r requirements.txt
+         python -m pip install -r requirements.txt
   
      - name: install psql 
        run: | 
