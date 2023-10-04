@@ -40,5 +40,6 @@ jobs:
        run: | 
          cd classes/uniTests
          pip install requests
+         pip install -r classes/dataBase.py
          python -m unittest discover
          
