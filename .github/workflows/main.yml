@@ -39,5 +39,5 @@ jobs:
      - name: Unit tests 
        run: | 
          cd classes/uniTests 
-         pip install pytest
-         pytest -vv
+         pip install -m unittest
+         python -m unittest discover
