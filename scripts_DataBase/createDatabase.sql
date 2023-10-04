@@ -1,1 +1,1 @@
-create database rsoi_persons_test;
+create database rsoi_persons;
