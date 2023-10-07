@@ -38,10 +38,7 @@ jobs:
   
      - name: Unit tests 
        run: | 
-          cd classes
-          pip install -r dataBase.py
           cd classes/uniTests
-          pip install requests
           python -m unittest discover 
          
          
