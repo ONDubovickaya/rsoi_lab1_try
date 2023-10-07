@@ -40,6 +40,7 @@ jobs:
        run: | 
           cd classes
           pip install requests
+          cd classes/uniTests
           python -m unittest discover 
          
          
