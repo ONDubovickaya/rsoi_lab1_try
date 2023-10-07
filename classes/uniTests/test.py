@@ -4,7 +4,7 @@ import requests
 import sys
 sys.path.append('C:\\Users\\ОЛЬГА\\Desktop\\rsoi\\rsoi_lab1_try\\classes')
 
-from classes.dataBase import Database
+from dataBase import Database
 
 database = Database()
 
