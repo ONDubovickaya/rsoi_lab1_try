@@ -33,13 +33,13 @@ jobs:
        run: | 
          cd scripts_DataBase
          psql -h postgres "sslmode=disable user=postgres port=5432 password=posTgress23" < createDatabase.sql 
-         psql -h postgres "sslmode=disable dbname=rsoi_persons user=postgres port=5432 password=posTgress23" < createTable.sql 
-         psql -h postgres "sslmode=disable dbname=rsoi_persons user=postgres port=5432 password=posTgress23" < fillTable.sql 
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < createTable.sql 
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < fillTable.sql 
   
      - name: Unit tests 
        run: | 
           cd classes/uniTests
           pip install requests
-          python -m unittest discover 
+          python -m unittest discover
          
          
