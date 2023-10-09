@@ -51,7 +51,7 @@ def post_person():
     if person_id is None:
         return make_response('Invalid data', 400)
     #при успешном создании новой записи возвращается пустая строка, код состояния 201 Created и заголовок Location со значением, содержащим URL для доступа к новому ресурсу 
-    return '', 201, {'location': f'{request.host_url}api/v1/persons/{int(person_id)}'}   
+    return '', 201, {'location': f'{request.host_url}/persons/{int(person_id)}'}   
 
 #маршрут для обработки PATCH-запроса на обновление существующей записи о человеке по ID
 @app.route('/persons/<int:personId>', methods=["PATCH"])
