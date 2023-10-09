@@ -6,8 +6,8 @@ import requests
 
 import sys
 #sys.path.append('C:\\Users\\ОЛЬГА\\Desktop\\rsoi\\rsoi_lab1_try\\classes')
-sys.path.append(os.path.join(os.getcwd(), 'classes'))
-#sys.path.append(os.path.dirname(os.getcwd()))
+#sys.path.append(os.path.join(os.getcwd(), 'classes'))
+sys.path.append(os.path.dirname(os.getcwd()))
 
 from dataBase import Database
 
@@ -140,5 +140,6 @@ if __name__ == '__main__':
     sys.path.append(database_path)
     #database_path = os.path.join(os.getcwd(), 'classes')
     #sys.path.append(database_path)
+    
     unittest.main()
 
