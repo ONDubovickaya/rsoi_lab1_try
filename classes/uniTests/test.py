@@ -6,7 +6,8 @@ import requests
 
 import sys
 #sys.path.append('C:\\Users\\ОЛЬГА\\Desktop\\rsoi\\rsoi_lab1_try\\classes')
-sys.path.append(os.path.join(os.getcwd(), 'classes'))
+#sys.path.append(os.path.join(os.getcwd(), 'classes'))
+sys.path.append(os.path.dirname(os.getcwd()))
 
 from dataBase import Database
 
