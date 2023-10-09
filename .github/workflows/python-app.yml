@@ -55,6 +55,7 @@ jobs:
 
     - name: Run tests
       run: |
+          cd classes/dataBase
           pip install coverage
           pip install requests
           coverage run classes/uniTests/test_app.py
