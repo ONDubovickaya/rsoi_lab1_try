@@ -86,4 +86,4 @@ def delete_person(personId):
     return make_response(f"Person for ID {personId} was removed", 204)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1',port=8080)
+    app.run(host='localhost',port=5432)
