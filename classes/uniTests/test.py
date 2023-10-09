@@ -130,6 +130,7 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(r.status_code, 404)             
 
 if __name__ == '__main__':
-    
+    database_path = os.path.join(os.getcwd(), 'classes')
+    sys.path.append(database_path)
     unittest.main()
 
