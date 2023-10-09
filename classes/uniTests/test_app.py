@@ -2,7 +2,7 @@ import unittest
 import requests
 
 import sys
-sys.path.append('/rsoi_lab1_try/classes/dataBase')
+sys.path.append('\\classes\\dataBase')
 
 from dataBase import Database
 
