@@ -58,6 +58,6 @@ jobs:
           cd classes
           pip install coverage
           pip install requests
-          coverage run classes/uniTests/test_app.py
+          coverage run classes/uniTests/tests.py
     - name: Tests report
       run: coverage report 
