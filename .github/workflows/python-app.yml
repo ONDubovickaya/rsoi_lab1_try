@@ -53,8 +53,8 @@ jobs:
          psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < createTable.sql 
          psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < fillTable.sql
     
-    - name: Test with pytest
+    - name: Test with unittest
       run: |
         cd classes/uniTests
         pip install requests
-        pytest
+        unittest
