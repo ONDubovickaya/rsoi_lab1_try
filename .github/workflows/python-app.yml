@@ -52,9 +52,11 @@ jobs:
          psql -h postgres "sslmode=disable user=postgres port=5432 password=posTgress23" < createDatabase.sql 
          psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < createTable.sql 
          psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < fillTable.sql
-    
-    - name: Test with unittest
+
+    - name: Run tests
       run: |
-        cd classes/uniTests
-        pip install requests
-        python -m unittest discover 
+          pip install coverage
+          pip install requests
+          coverage run classes/uniTests/test_app.py
+    - name: Tests report
+      run: coverage report 
