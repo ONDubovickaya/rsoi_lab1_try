@@ -1,8 +1,8 @@
+import sys
+sys.path.append('/classes/dataBase')
+
 import unittest
 import requests
-
-import sys
-sys.path.append('\\classes\\dataBase')
 
 from dataBase import Database
 
