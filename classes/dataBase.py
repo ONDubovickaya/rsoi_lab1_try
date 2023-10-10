@@ -3,14 +3,15 @@ import psycopg2
 #ссылка на базу данных в виде 'postgresql://user:password@localhost/database'
 #user="postgres", password="posTgress23", localhost = "127.0.0.1", database="rsoi_persons"
 
-#my_database = 'postgresql://postgres:posTgress23@postgres/rsoi_persons'
-my_database = psycopg2.connect(
-       host="127.0.0.1",
-       port="5432",
-       database="rsoi_persons",
-       user="postgres",
-       password="poTgress23"
-   )
+my_database = 'postgresql://postgres:posTgress23@127.0.0.1/rsoi_persons'
+
+#my_database = psycopg2.connect(
+       #host="127.0.0.1",
+       #port="5432",
+       #database="rsoi_persons",
+       #user="postgres",
+       #password="poTgress23"
+   #)
    
 
 class Database:
