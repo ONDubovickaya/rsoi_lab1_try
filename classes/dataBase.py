@@ -5,7 +5,7 @@ import psycopg2
 
 #my_database = 'postgresql://postgres:posTgress23@127.0.0.1/rsoi_persons'
 my_database = psycopg2.connect(
-       host="127.0.0.1",
+       host="postgres",
        port="5432",
        database="rsoi_persons",
        user="postgres",
