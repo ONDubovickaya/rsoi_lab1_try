@@ -3,7 +3,7 @@ import psycopg2
 #ссылка на базу данных в виде 'postgresql://user:password@localhost/database'
 #user="postgres", password="posTgress23", localhost = "127.0.0.1", database="rsoi_persons"
 
-my_database = 'postgresql://postgres:posTgress23@postgres/rsoi_persons_test'
+my_database = 'postgresql://postgres:posTgress23@postgres/rsoi_persons'
 
 class Database:
     def __init__(self):
