@@ -32,9 +32,9 @@ jobs:
      - name: migrate_database 
        run: | 
          cd scripts_DataBase
-         psql -h postgres "sslmode=disable user=postgres port=5432 password=posTgress23" < createDatabase.sql 
-         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < createTable.sql 
-         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=postgres port=5432 password=posTgress23" < fillTable.sql 
+         psql -h postgres "sslmode=disable user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < createDatabase.sql 
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < createTable.sql 
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < fillTable.sql 
   
      - name: Unit tests 
        run: | 
