@@ -3,8 +3,8 @@ import psycopg2
 #ссылка на базу данных в виде 'postgresql://user:password@localhost/database'
 #user="postgres", password="posTgress23", localhost = "127.0.0.1", database="rsoi_persons"
 
-#my_database = 'postgresql://postgres:posTgress23@127.0.0.1/rsoi_persons'
-my_database = 'postgres://rsoi_persons_6qmq_user:WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V@dpg-ckin5qse1qns738opfc0-a.oregon-postgres.render.com/rsoi_persons_6qmq'
+my_database = 'postgresql://postgres:posTgress23@127.0.0.1/rsoi_persons'
+#my_database = 'postgres://rsoi_persons_6qmq_user:WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V@dpg-ckin5qse1qns738opfc0-a.oregon-postgres.render.com/rsoi_persons_6qmq'
 #my_database = psycopg2.connect(
        #host="127.0.0.1",
        #port="5432",
