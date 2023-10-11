@@ -6,7 +6,7 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=posTgress23
+      - POSTGRES_PASSWORD=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V
       - POSTGRES_DB=rsoi_persons
     depends_on:
       - db
@@ -14,5 +14,5 @@ services:
     image: postgres
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=posTgress23
+      - POSTGRES_PASSWORD=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V
       - POSTGRES_DB=rsoi_persons
