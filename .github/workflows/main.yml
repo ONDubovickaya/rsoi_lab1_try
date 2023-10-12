@@ -44,10 +44,9 @@ jobs:
           python -m unittest discover
 
      - name: Deploy
-       uses: ashishkujoy/render-deploy@v1.0.5
-       with:
+       env:
           deploy_url: https://api.render.com/deploy/srv-ckjjhp9jrl0c73deqhrg?key=yRWRsi9iuDw
-          max-deployment-wait-ms: 3600000
-          delay-in-ms: 10000
+       run: |
+          curl "$deploy_url"
          
          
