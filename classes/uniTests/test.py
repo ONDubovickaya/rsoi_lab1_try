@@ -22,7 +22,7 @@ class TestAPI(unittest.TestCase):
     def test_get_person(self):
         person = database.DB_get_person(2)
 
-        r = requests.get(url="http://localhost:8080/persons/2")
+        r = requests.get(url="http://rsoi.onrender.com/persons/2")
         self.assertEqual(r.status_code, 200)
             
         person_info = r.json()
@@ -40,7 +40,7 @@ class TestAPI(unittest.TestCase):
     def test_get_all_persons(self):
         persons = database.DB_get_all_persons()
 
-        r = requests.get(url="http://localhost:8080/persons")
+        r = requests.get(url="http://rsoi.onrender.com/persons")
         self.assertEqual(r.status_code, 200)
 
         persons_info = r.json()
@@ -66,7 +66,7 @@ class TestAPI(unittest.TestCase):
             "work" : "painter"
         }
         
-        r = requests.post(url="http://localhost:8080/persons", json=person)
+        r = requests.post(url="http://rsoi.onrender.com/persons", json=person)
         self.assertEqual(r.status_code, 201)
 
         #извлекаем значение ключа 'Location' из заголовков ответа r
@@ -100,7 +100,7 @@ class TestAPI(unittest.TestCase):
 
         for patch_var in patch_vars:
             with self.subTest(patch_var=patch_var):
-                r = requests.post(url="http://localhost:8080/persons", json=person)
+                r = requests.post(url="http://rsoi.onrender.com/persons", json=person)
                 redirected_url = r.headers['Location']
 
                 person_id_dict = {"id": int(redirected_url.split("/")[-1])}
@@ -122,7 +122,7 @@ class TestAPI(unittest.TestCase):
             "work" : "writer"
         }
         
-        r = requests.post(url="http://localhost:8080/persons", json=person)
+        r = requests.post(url="http://rsoi.onrender.com/persons", json=person)
         redirected_url = r.headers['Location']
                 
         #удаляем объект с помощью DELETE-запроса
