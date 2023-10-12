@@ -46,9 +46,8 @@ jobs:
      - name: Deploy
        uses: ashishkujoy/render-deploy@v1.0.5
        with:
-          service-id: srv-ck9ejen0vg2c7383j0ag
-          service-key: Js5znxp1_ic
-          api-key: rnd_gvrgSHOmTdfjQUorYZ6PlbmIwSjJ
+          service-id: srv-ckjjhp9jrl0c73deqhrg
+          service-key: yRWRsi9iuDw
           max-deployment-wait-ms: 3600000
           delay-in-ms: 10000
          
