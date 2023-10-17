@@ -11,8 +11,8 @@ jobs:
        postgres: 
          image: postgres:latest 
          env: 
-           POSTGRES_USER: rsoi_persons_6qmq_user
-           POSTGRES_PASSWORD: WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V
+           POSTGRES_USER: ${{ secrets.DB_POSTGRES_USER }}
+           POSTGRES_PASSWORD: ${{ secrets.DB_POSTGRES_PASSWORD }}
   
          ports: 
            - 5432:5432 
@@ -32,9 +32,9 @@ jobs:
      - name: migrate_database 
        run: | 
          cd scripts_DataBase
-         psql -h postgres "sslmode=disable user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < createDatabase.sql 
-         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < createTable.sql 
-         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < fillTable.sql 
+         psql -h postgres "sslmode=disable user=${{ secrets.DB_POSTGRES_USER }} port=5432 password=${{ secrets.DB_POSTGRES_PASSWORD }}" < createDatabase.sql 
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=${{ secrets.DB_POSTGRES_USER }} port=5432 password=${{ secrets.DB_POSTGRES_PASSWORD }}" < createTable.sql 
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=${{ secrets.DB_POSTGRES_USER }} port=5432 password=${{ secrets.DB_POSTGRES_PASSWORD }}" < fillTable.sql 
   
      - name: Unit tests 
        run: | 
@@ -49,9 +49,9 @@ jobs:
        run: |
           curl "$deploy_url"
 
-     - name: delete_from_migrate_database 
-       run: | 
-         cd scripts_DataBase
-         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < delfromTable.sql
+     #- name: delete_from_migrate_database 
+      # run: | 
+       #  cd scripts_DataBase
+       #  psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < delfromTable.sql
          
          
