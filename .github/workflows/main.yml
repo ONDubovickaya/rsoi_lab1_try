@@ -56,7 +56,8 @@ jobs:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
           DB_POSTGRES_URL: ${{ secrets.DB_POSTGRES_URL }}
        run: |
-          curl "$deploy_url"
+          curl -X POST -H "Content-Type: application/json" -d '{"DB_POSTGRES_URL": "'"$DB_POSTGRES_URL"'"}' "$deploy_url"
+          #curl "$deploy_url"
 
      #- name: delete_from_migrate_database 
       # run: | 
