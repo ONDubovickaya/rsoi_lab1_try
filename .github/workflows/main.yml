@@ -48,5 +48,10 @@ jobs:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
        run: |
           curl "$deploy_url"
+
+     - name: delete_from_migrate_database 
+       run: | 
+         cd scripts_DataBase
+         psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=rsoi_persons_6qmq_user port=5432 password=WXXjkvg7vd3q1AE4ycIoTIOS9tlq7s8V" < delfromTable.sql
          
          
