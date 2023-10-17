@@ -54,7 +54,7 @@ jobs:
      - name: Deploy to Render
        env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-          db_postgres_url: ${{ secrets.DB_POSTGRES_URL }}
+          DB_POSTGRES_URL: ${{ secrets.DB_POSTGRES_URL }}
        run: |
           curl "$deploy_url"
 
