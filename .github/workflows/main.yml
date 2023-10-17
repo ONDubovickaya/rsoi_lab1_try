@@ -46,12 +46,16 @@ jobs:
           pip install requests
           pip install psycopg2
           python -m unittest discover
+    
+     #- name: Deploy to Render
+      # run: |
+       #   render deploy --env-file=secrets.env
 
      - name: Deploy to Render
        env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          db_postgres_url: ${{ secrets.DB_POSTGRES_URL }}
        run: |
-          render deploy --env-file=secrets.env
           curl "$deploy_url"
 
      #- name: delete_from_migrate_database 
