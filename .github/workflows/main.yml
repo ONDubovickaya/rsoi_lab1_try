@@ -13,7 +13,6 @@ jobs:
          env: 
            POSTGRES_USER: ${{ secrets.DB_POSTGRES_USER }}
            POSTGRES_PASSWORD: ${{ secrets.DB_POSTGRES_PASSWORD }}
-           DB_POSTGRES_URL: ${{ secrets.DB_POSTGRES_URL }}
   
          ports: 
            - 5432:5432 
@@ -36,7 +35,11 @@ jobs:
          psql -h postgres "sslmode=disable user=${{ secrets.DB_POSTGRES_USER }} port=5432 password=${{ secrets.DB_POSTGRES_PASSWORD }}" < createDatabase.sql 
          psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=${{ secrets.DB_POSTGRES_USER }} port=5432 password=${{ secrets.DB_POSTGRES_PASSWORD }}" < createTable.sql 
          psql -h postgres "sslmode=disable dbname=rsoi_persons_test user=${{ secrets.DB_POSTGRES_USER }} port=5432 password=${{ secrets.DB_POSTGRES_PASSWORD }}" < fillTable.sql 
-  
+
+     - name: Set up environment variables
+       run: |
+         echo "DB_POSTGRES_URL=${{ secrets.DB_POSTGRES_URL }}" >> $GITHUB_ENV
+
      - name: Unit tests 
        run: | 
           cd classes/uniTests
